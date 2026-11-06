@@ -1,78 +1,69 @@
-
 <!DOCTYPE html>
 <html lang="ht">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Zanmi IA</title>
-
-  <style>
-    body {
-      background: #eaf0ff;
-      font-family: Arial;
-      padding: 15px;
-    }
-
-    h1 {
-      text-align: center;
-      color: blue;
-    }
-
-    #chat {
-      background: white;
-      padding: 15px;
-      border-radius: 12px;
-      min-height: 250px;
-      margin-bottom: 15px;
-    }
-
-    input {
-      width: 95%;
-      padding: 12px;
-      border-radius: 8px;
-      border: 1px solid blue;
-    }
-
-    button {
-      background: blue;
-      color: white;
-      padding: 12px 20px;
-      border: none;
-      border-radius: 8px;
-      margin-top: 10px;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zanmi IA</title>
+<style>
+body {
+  font-family: Arial;
+  background: #101827;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+h1 { color: #00e5ff; }
+#chat {
+  background: #202c40;
+  padding: 15px;
+  border-radius: 12px;
+  min-height: 250px;
+  text-align: left;
+}
+input {
+  padding: 12px;
+  width: 65%;
+  border-radius: 8px;
+}
+button {
+  padding: 12px;
+  background: #00c8ff;
+  border: none;
+  border-radius: 8px;
+}
+</style>
 </head>
-
 <body>
 
-  <h1>🤖 Zanmi IA</h1>
+<h1>🤖 ZANMI IA</h1>
+<p>Bonjou! Mwen se Zanmi IA. Pale avè m!</p>
 
-  <div id="chat">
-    <p><b>Zanmi IA:</b> Bonjou! Kijan mwen ka ede w?</p>
-  </div>
+<div id="chat"></div>
 
-  <input id="kesyon"
-    type="text"
-    placeholder="Ekri kesyon ou...">
+<br>
+<input id="msg" placeholder="Ekri mesaj ou...">
+<button onclick="send()">Voye</button>
 
-  <button onclick="voye()">Voye</button>
+<script>
+function send() {
+ let input = document.getElementById("msg");
+ let chat = document.getElementById("chat");
+ let message = input.value.trim();
 
-  <script>
-    function voye() {
-      let kesyon =
-        document.getElementById("kesyon").value;
+ if (message === "") return;
 
-      if (kesyon.trim() === "") return;
+ chat.innerHTML += "<p><b>Ou:</b> " + message + "</p>";
 
-      let chat = document.getElementById("chat");
+ let answer = "Mwen kontan pale avè w! 😊";
 
-      chat.innerHTML +=
-        "<p><b>Ou:</b> " + kesyon + "</p>";
+ if (message.toLowerCase().includes("bonjou")) {
+   answer = "Bonjou zanmi! Kijan ou ye? 😊";
+ }
 
-      document.getElementById("kesyon").value = "";
-    }
-  </script>
+ chat.innerHTML += "<p><b>Zanmi IA:</b> " + answer + "</p>";
+ input.value = "";
+}
+</script>
 
 </body>
 </html>
